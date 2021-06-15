@@ -16,7 +16,11 @@
     </nb-header>
 
     <nb-content padder>
-      <nb-text>Content goes here {{ posts }}</nb-text>
+      <nb-button primary :onPress='ok' >
+        <nb-text>Calcula</nb-text>
+      </nb-button>
+      
+      <nb-text>{{ datos }} Content goes here {{ posts }}</nb-text>
     </nb-content>
 
     <nb-footer>
@@ -30,13 +34,28 @@
 </template>
 
 <script>
+import axios from 'axios'
 import store from '../../store';
 
 export default {
-  data () {
-    return {
-      posts: store.state.posts,
-    }
-  }
+    data: function() {
+      return {
+        posts: store.state.posts,
+        datos: 'NA'
+      }
+    },
+    methods: {
+        ok: function() {
+            console.log('listo---------');
+            axios.get('https://petstore.ci.ultrasist.net/api/bitso.json')
+            .then(response => {
+                this.usr = response.data.payload;
+            })
+        }
+    },
+    mounted() {
+      this.ok();
+    },
+    
 }
 </script>
