@@ -20,6 +20,10 @@
         <nb-text>Calcula</nb-text>
       </nb-button>
       
+      <nb-button primary :onPress='cambia' >
+        <nb-text>Cambia</nb-text>
+      </nb-button>
+
       <nb-text>{{ datos }} Content goes here {{ posts }}</nb-text>
     </nb-content>
 
@@ -51,6 +55,11 @@ export default {
             .then(response => {
                 this.datos = response.data.payload;
             })
+        },
+        cambia: function() {
+          var content = ['x','y','z'];
+          console.log(content);
+          store.dispatch('SET_POSTS2', content)
         }
     },
     mounted() {

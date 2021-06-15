@@ -26,6 +26,11 @@ export function SET_USER({commit, state}, {userObj}) {
   return commit('LOGIN_SUCCESFULL', {userObj})
 }
 
+export function SET_POSTS2({commit, state}, {posts}) {
+  var p = ['i','j'];
+  return commit('SET_POSTS', p)
+}
+
 export function LOGOUT ({ commit, state}, callback) {
   return new Promise((resolve, reject) => {
       AsyncStorage.removeItem('email').then(() => {
