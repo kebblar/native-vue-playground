@@ -49,7 +49,7 @@ export default {
             console.log('listo---------');
             axios.get('https://petstore.ci.ultrasist.net/api/bitso.json')
             .then(response => {
-                this.usr = response.data.payload;
+                this.datos = response.data.payload;
             })
         }
     },

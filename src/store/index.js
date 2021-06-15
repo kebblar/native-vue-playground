@@ -16,7 +16,7 @@ const store = new Vuex.Store({
 
   state: {
     activeType: 'posts',
-    posts: ['a','b'],
+    posts: ['a','b', 'c'],
     logging_in: false,
     userObj: {},
     loadingPosts: false
