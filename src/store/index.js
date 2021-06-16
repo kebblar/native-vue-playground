@@ -5,22 +5,24 @@
 
 import Vue from 'vue-native-core';
 import Vuex from 'vuex';
-import * as actions from './actions';
-import * as mutations from './mutations';
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-  actions,
-  mutations,
 
   state: {
     activeType: 'posts',
-    posts: ['a','b', 'c'],
+    posts: ['a', 'b', 'c'],
     logging_in: false,
     userObj: {},
     loadingPosts: false
+  },
+  mutations: {
+    setPosts(state, info) {
+      state.posts = info;
+    }
   }
+  
 });
 
 export default store;

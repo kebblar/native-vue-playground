@@ -44,27 +44,30 @@ import store from '../../store';
 export default {
     data: function() {
       return {
-        posts: store.state.posts,
+        //posts: store.state.posts,
         datos: 'NA'
       }
     },
     methods: {
         ok: function() {
-            console.log('listo---------');
+            console.log('nuevos datos de bitso');
             axios.get('https://petstore.ci.ultrasist.net/api/bitso.json')
             .then(response => {
                 this.datos = response.data.payload;
             })
         },
         cambia: function() {
-          var content = ['x','y','z'];
-          console.log(content);
-          store.dispatch('SET_POSTS2', content)
+          var content = ['x','y','zzzz'];
+          store.commit('setPosts', content);
         }
     },
     mounted() {
       this.ok();
     },
-    
+    computed: {
+      posts() {
+        return store.state.posts;
+      }
+    }
 }
 </script>
